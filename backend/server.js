@@ -3,7 +3,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
-const EnhancedEmailAI = require('./email-ai-enhanced');
+const EnhancedEmailAI = require('./services/email-ai-enhanced');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -99,7 +99,7 @@ app.get('/api/emails', (req, res) => {
 });
 
 // Waitlist routes
-const waitlistRoutes = require('./routes-waitlist');
+const waitlistRoutes = require('./routes/routes-waitlist');
 app.use('/api/waitlist', waitlistRoutes);
 
 app.listen(PORT, () => {

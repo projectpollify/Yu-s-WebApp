@@ -3,32 +3,32 @@
 ## Project Structure
 ```
 Yuswebapp/
-├── artifacts/           # Original project documents and templates
-├── client/             # React frontend application
+├── backend/            # Backend application
+│   ├── models/         # Database models
+│   ├── routes/         # API endpoints
+│   ├── services/       # Business logic & AI services
+│   ├── config/         # Configuration files
+│   ├── server.js       # Main server file
+│   └── package.json
+├── frontend/           # React frontend application
 │   ├── src/
-│   │   ├── components/ # Login, Dashboard, etc.
-│   │   ├── pages/      # Students, Payments, Waitlist, Emails
-│   │   ├── services/   # API communication
+│   │   ├── components/ # React components
+│   │   ├── pages/      # Page components
+│   │   ├── services/   # API services
 │   │   └── styles/     # CSS files
 │   └── package.json
-├── server.js           # Main backend server
-├── email-ai-enhanced.js # AI email monitoring system
-├── models-combined.js  # Database models
-├── routes-*.js        # API route handlers
-├── package.json       # Backend dependencies
-├── .env               # Environment variables (your credentials)
-└── test-gmail-connection.js # Gmail connection tester
+├── artifacts/          # Original documents
+├── .env               # Environment variables
+├── package.json       # Root package.json for scripts
+└── README.md          # This file
 ```
 
 ## Quick Start
 
 ### 1. Install Dependencies
 ```bash
-# Backend dependencies (already installed)
-npm install
-
-# Frontend dependencies (already installed)
-cd client && npm install && cd ..
+# Install all dependencies (root, backend, and frontend)
+npm run install:all
 ```
 
 ### 2. Configure Gmail & AI
@@ -41,16 +41,17 @@ See `gmail-setup-guide.md` for detailed instructions.
 
 ### 3. Test Gmail Connection
 ```bash
-node test-gmail-connection.js
+cd backend && node services/test-gmail-connection.js
 ```
 
 ### 4. Start the Application
 ```bash
-# Terminal 1 - Backend
-node server.js
+# From root directory - starts both backend and frontend
+npm run dev
 
-# Terminal 2 - Frontend
-cd client && npm start
+# Or run separately:
+npm run backend  # Backend on port 5001
+npm run frontend # Frontend on port 3000
 ```
 
 ### 5. Access the Application
@@ -72,3 +73,8 @@ cd client && npm start
 - Categorizes emails (Urgent, Waitlist, Payments, etc.)
 - Auto-responds to simple inquiries
 - Applies Gmail labels for organization
+
+## Deployment
+- Backend can be deployed to Heroku, Railway, or AWS
+- Frontend can be deployed to Vercel, Netlify, or AWS S3
+- Database: MongoDB Atlas for production

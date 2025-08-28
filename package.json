@@ -1,32 +1,16 @@
 {
-  "name": "yus-school-simplified",
-  "version": "2.0.0",
-  "description": "Simplified Yus Montessori School management system",
-  "main": "server.js",
+  "name": "yus-montessori-webapp",
+  "version": "1.0.0",
+  "description": "Yus Montessori School Management System",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon server.js",
-    "client": "cd client && npm start",
-    "build": "cd client && npm run build",
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "mongoose": "^7.5.0",
-    "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2",
-    "nodemailer": "^6.9.4",
-    "googleapis": "^126.0.1",
-    "openai": "^4.8.0",
-    "express-validator": "^7.0.1"
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "start": "cd backend && npm start",
+    "build": "cd frontend && npm run build"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1",
     "concurrently": "^8.2.1"
-  },
-  "engines": {
-    "node": ">=16.0.0"
   }
 }
